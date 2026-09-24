@@ -27,7 +27,7 @@ from qwenpaw.runtime.hooks import HookResult
 from qwenpaw.runtime.phases import Phase
 from qwenpaw.utils.file_snapshot_cache import get_file_snapshot_cache
 
-logger = logging.getLogger("qwenpaw.plugins.gykj_skill_runtime")
+logger = logging.getLogger("qwenpaw.plugins.qwenpaw_skill_runtime")
 
 
 class SkillVersionResolver:
@@ -222,7 +222,7 @@ class SkillRuntimePreBuildHook(LifecycleHook):
     """Refresh skills after session state is loaded and before agent build."""
 
     phase = Phase.PRE_AGENT_BUILD
-    name = "gykj_skill_runtime_pre_build"
+    name = "qwenpaw_skill_runtime_pre_build"
     # SessionLoadHook uses priority 10. Lower runs first, so this runs after
     # the old session has been loaded and can replace stale skill text.
     priority = 80
@@ -245,7 +245,7 @@ class SkillRuntimePreBuildHook(LifecycleHook):
             if callable(inject) and workspace_dir:
                 inject(
                     _stale_skill_notice(workspace_dir, names),
-                    source="gykj-skill-runtime",
+                    source="qwenpaw-skill-runtime",
                     priority=1,
                 )
         return HookResult()

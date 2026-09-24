@@ -1,4 +1,4 @@
-# GYKJ Skill Runtime
+# QwenPaw Skill Runtime
 
 版本 `0.2.0`。QwenPaw 通用插件，在每次构建 Agent 之前刷新工作区技能，避免会话继续沿用旧的 `SKILL.md`。
 
@@ -15,7 +15,7 @@
 
 ## 什么时候运行
 
-插件注册 `PRE_AGENT_BUILD` 钩子 `gykj_skill_runtime_pre_build`，在 `AgentBuilder.build()` 之前执行。优先级是 `80`。会话加载钩子的优先级是 `10`，数字更小的先执行，所以本钩子跑在旧会话载入之后，能改到已经放进上下文的 Skill 结果。
+插件注册 `PRE_AGENT_BUILD` 钩子 `qwenpaw_skill_runtime_pre_build`，在 `AgentBuilder.build()` 之前执行。优先级是 `80`。会话加载钩子的优先级是 `10`，数字更小的先执行，所以本钩子跑在旧会话载入之后，能改到已经放进上下文的 Skill 结果。
 
 没有 `workspace_dir` 时直接跳过。
 
@@ -40,12 +40,12 @@
 
 ## 日志
 
-日志名是 `qwenpaw.plugins.gykj_skill_runtime`。版本变化会打出技能名和旧版本到新版本；本轮有刷新时还会打出 `session_id` 和技能名列表。
+日志名是 `qwenpaw.plugins.qwenpaw_skill_runtime`。版本变化会打出技能名和旧版本到新版本；本轮有刷新时还会打出 `session_id` 和技能名列表。
 
 ## 文件
 
 ```text
-gykj-skill-runtime/
+qwenpaw-skill-runtime/
 ├── plugin.json    # id、版本、QwenPaw 兼容范围、入口
 ├── plugin.py      # 注册 PRE_AGENT_BUILD 钩子
 └── README.md
