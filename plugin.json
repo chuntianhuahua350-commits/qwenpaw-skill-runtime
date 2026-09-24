@@ -1,0 +1,17 @@
+{
+  "id": "gykj-skill-runtime",
+  "name": "GYKJ Skill Runtime",
+  "version": "0.2.0",
+  "description": "Before each agent build, invalidate skill caches when a workspace skill version changes.",
+  "author": "GYKJ",
+  "type": "general",
+  "entry": {
+    "backend": "plugin.py"
+  },
+  "dependencies": [],
+  "qwenpaw_version": {
+    "min": "2.0.0",
+    "max": "3.0.0"
+  },
+  "meta": {}
+}
